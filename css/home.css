@@ -83,3 +83,14 @@ p{
     width: 25px;
     height: 25px;
 }
+
+.col-md-8 {
+    width: 100% !important;
+}
+.col-md-4 {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100% !important;
+    padding-bottom: 20px;
+}
