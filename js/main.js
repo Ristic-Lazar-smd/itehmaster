@@ -1,4 +1,3 @@
-
 // TOGGLE ZA PRIKAZIVANJE
 function prikazi() {
   var x = document.getElementById("pregled");
@@ -145,8 +144,6 @@ function appandRow(obj) {
     case "4": 
     $test = "Horor"; 
   }
-  console.log(obj);
-
   $.get("handler/getLastElement.php", function ( data ) {
     var php_var = data;
     $("#tabela tbody").append(`
@@ -186,10 +183,4 @@ function updateRow(obj) {
     case "4": 
       tds[4].textContent = "Horor"; 
   }
-
-  // tds[4].textContent = obj.zanr;
- 
-  console.log("ovo gledaj" + obj.zanr);
-  console.log("ovo gledaj" + obj.nazivKnjiga);
-  console.log("ovo gledaj" + obj.pisac);
 }
