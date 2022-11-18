@@ -1,5 +1,5 @@
 
-// TOGGLE ZA PRIKAZIVANJE, LEGACY CODE
+// TOGGLE ZA PRIKAZIVANJE
 function prikazi() {
   var x = document.getElementById("pregled");
   if (x.style.display === "none") {
@@ -22,7 +22,6 @@ $("#btn-izbrisi").click(function () {
       checked.closest("tr").remove();
       console.log("Knjiga je obrisana ");
       alert("Knjiga je obrisana");
-      //$('#izmeniForm').reset;
     } else {
       console.log("Knjiga nije obrisana " + response);
       alert("Knjiga nije obrisan");
@@ -51,12 +50,13 @@ $("#btn-izmeni").click(function () {
 
     $("#godinaa").val(response[0]["godinaPisanja"].trim());
    
-
+    
     $("#zanrr").val(response[0]["zanr"].trim());
    
 
     $("#idd").val(checked.val());
 
+    console.log( "moj log" + response[0]["zanr"].trim());
     console.log(response);
   });
 
@@ -77,7 +77,6 @@ $("#izmeniForm").submit(function () {
     return json;
   }, {});
   console.log(obj);
-  //$inputs.prop("disabled", true);
 
   request = $.ajax({
     url: "handler/update1.php",
@@ -121,7 +120,6 @@ $("#dodajForm").submit(function () {
     return json;
   }, {});
   console.log(obj);
-  //$inputs.prop("disabled", true); 
 
   request = $.ajax({
     url: "handler/add1.php",
@@ -143,20 +141,31 @@ $("#dodajForm").submit(function () {
 });
 
 function appandRow(obj) {
+  //jako gadno ali jbg
+  switch (obj.zanr) {
+    case "1": 
+      $test = "Naučna fantastika"; 
+      break;
+    case "2":
+      $test = "Triler"; 
+      break;
+    case "3": 
+    $test = "Fantastika"; 
+      break;
+    case "4": 
+    $test = "Horor"; 
+  }
   console.log(obj);
 
   $.get("handler/getLastElement.php", function ( data ) {
     var php_var = data;
-    console.log("ove pise php_vat"+php_var);
-    console.log(data);
-    console.log($("#tabela tbody tr:last").get());
     $("#tabela tbody").append(`
       <tr>
           <td>${data}</td>
           <td>${obj.nazivKnjiga}</td>
           <td>${obj.pisac}</td>
           <td>${obj.godinaPisanja}</td>
-          <td>${obj.zanr}</td>
+          <td>${$test}</td>
           <td>
               <label class="custom-radio-btn">
                   <input type="radio" name="checked-donut" value=${data}>
@@ -169,12 +178,28 @@ function appandRow(obj) {
 }
 
 function updateRow(obj) {
-  console.log(obj);
-  console.log(obj.knjigaID);
-  console.log($(`#tabela tbody #tr-${obj.knjigaID} td`).get());
   let tds = $(`#tabela tbody #tr-${obj.knjigaID} td`).get();
   tds[1].textContent = obj.nazivKnjiga;
   tds[2].textContent = obj.pisac;
   tds[3].textContent = obj.godinaPisanja;
-  tds[4].textContent = obj.zanr;
+
+  switch (obj.zanr) {
+    case "1": 
+      tds[4].textContent = "Naučna fantastika"; 
+      break;
+    case "2":
+      tds[4].textContent = "Triler"; 
+      break;
+    case "3": 
+      tds[4].textContent = "Fantastika"; 
+      break;
+    case "4": 
+      tds[4].textContent = "Horor"; 
+  }
+
+  // tds[4].textContent = obj.zanr;
+ 
+  console.log("ovo gledaj" + obj.zanr);
+  console.log("ovo gledaj" + obj.nazivKnjiga);
+  console.log("ovo gledaj" + obj.pisac);
 }

@@ -17,7 +17,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         header('Location: home.php');
         exit();
     } else {
-        //promeni 
         echo '<script type="text/javascript">alert("Pogresni podaci za login");
                     window.location.href = "http://localhost/PhpAjaxMySQL/";</script>';
         exit();
@@ -41,9 +40,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         <div class="main-div">
             <form method="POST" action="#">
                 <h1>LAGUNA</h1>
-                <!-- <div class="imgcontainer">
-                    <img src="image/logoo.png">
-                </div> -->
                 <div class="container">
                     <input type="text" placeholder="Username" name="username" class="form-control" required>
                     <br>

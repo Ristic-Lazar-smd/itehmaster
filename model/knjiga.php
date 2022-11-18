@@ -61,7 +61,11 @@ class Knjiga
         return $conn->query($q);
     }
 
-
+    public static function getZanrAll($zanr, mysqli $conn)
+    {
+        $q = "SELECT * FROM zanrknjiga";
+        return $conn->query($q);
+    }
 
 
     public static function getLast(mysqli $conn)
