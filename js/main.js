@@ -43,21 +43,11 @@ $("#btn-izmeni").click(function () {
   request.done(function (response, textStatus, jqXHR) {
     console.log("Popunjena");
     $("#nazivv").val(response[0]["nazivKnjiga"]);
-
-
     $("#pisacc").val(response[0]["pisac"].trim());
-  
-
     $("#godinaa").val(response[0]["godinaPisanja"].trim());
-   
-    
     $("#zanrr").val(response[0]["zanr"].trim());
-   
-
     $("#idd").val(checked.val());
 
-    console.log( "moj log" + response[0]["zanr"].trim());
-    console.log(response);
   });
 
   request.fail(function (jqXHR, textStatus, errorThrown) {
