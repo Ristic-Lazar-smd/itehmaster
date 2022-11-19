@@ -114,6 +114,9 @@ if ($result->num_rows == 0) {
             <button id="btnIzmeni" class="btn" onclick="sortTable()"><img src="image/sort.png" style="width: 25px;height: 25px;"></button>
         </div>
         <br>
+
+
+
     </div>
 
 
@@ -142,10 +145,10 @@ if ($result->num_rows == 0) {
                                         <input type="text" style="border: 1px solid black" name="pisac" class="form-control" placeholder="Pisac  *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" style="border: 1px solid black" name="godinaPisanja" class="form-control" placeholder="Godina pisanja *" value="" />
+                                        <input type="date" style="border: 1px solid black" name="godinaPisanja" class="form-control" placeholder="Godina pisanja *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" style="border: 1px solid black" name="zanr" class="form-control" placeholder="zanr *" value="" />
+                                        <input type="text" style="border: 1px solid black" name="zanr" class="form-control" placeholder="zanr *" value="" />  
                                     </div>
                                     <div class="form-group">
                                         <button id="btnDodaj" type="submit" class="btn btn-success btn-block" style="background-color: orange; border: 1px solid black;"><i class="glyphicon glyphicon-plus"></i> Dodaj knjigu
@@ -192,7 +195,7 @@ if ($result->num_rows == 0) {
                                         <input id="pisacc" type="text" name="pisac" class="form-control" placeholder="Pisac *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input id="godinaa" type="number" name="godinaPisanja" class="form-control" placeholder="Godina pisanja *" value="" />
+                                        <input id="godinaa" type="date" name="godinaPisanja" class="form-control" placeholder="Godina pisanja *" value="" />
                                     </div>
                                     <div class="form-group">
                                         <input id="zanrr" type="text" name="zanr" class="form-control" placeholder="Zanr*" value="" />
@@ -215,7 +218,27 @@ if ($result->num_rows == 0) {
 
         </div>
     </div>
-
+<!-- Legenda -->
+<?php
+$pdo = new PDO('mysql:host=localhost;dbname=knjizara', 'root', '');
+$sql = "SELECT zanrID, zanrName FROM zanrknjiga";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$books = $stmt->fetchAll();
+?>
+<table class="table sortable table-bordered table-hover legenda"> 
+<tr class="header">
+                <td>Zanr</td>
+                <td>Id</td>
+</tr>
+<?php foreach($books as $book): ?>
+        <tr>
+        <td><?= $book['zanrName']; ?></td>
+        <td><?= $book['zanrID']; ?></td>
+        </tr>
+        <?php endforeach; ?>
+</table>
+<!-- Legenda end -->
     <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     <script src="js/main.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

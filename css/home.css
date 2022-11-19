@@ -94,3 +94,7 @@ p{
     width: 100% !important;
     padding-bottom: 20px;
 }
+.legenda {
+    width: 20%;
+    float: right;
+}

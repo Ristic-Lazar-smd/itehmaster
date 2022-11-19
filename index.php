@@ -18,7 +18,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         exit();
     } else {
         echo '<script type="text/javascript">alert("Pogresni podaci za login");
-                    window.location.href = "http://localhost/PhpAjaxMySQL/";</script>';
+                    window.location.href = "http://localhost:8080/itehmaster/";</script>';
         exit();
     }
 }
