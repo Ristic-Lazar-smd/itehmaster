@@ -29,16 +29,20 @@ if ($result->num_rows == 0) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="icon" href="image/boy.png" />
     <link rel="stylesheet" href="css/home.css">
-    <title>Laguna</title>
+    <title >Laguna</title>
+
 </head>
 
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <div class="jumbotron text-center" style=" background-color: rgba(255, 182, 193, 0);">
-        <div class="container">
-            <h1 style="color:darkred">Prodavnica knjiga</h1>
-        </div>
+        <!-- <div class="wraper">
+            <h1 class="txt" style="color:darkred">Prodavnica knjiga</h1>
+        </div> -->
+        <h1 class="home-title">
+            <span>LAGUNA</span>
+        </h1>
     </div>
 
     <div class="col-md-8" style="text-align:center; width:66.6%;float:left">
@@ -122,7 +126,7 @@ if ($result->num_rows == 0) {
 
 <!-- MODALI -->
     <br>
-    <a href="logout.php" class="label label-primary" style="font-size:16px; position: fixed; bottom:0; right:0; float:right">Logout</a>
+    <a href="logout.php" class="logoutdugme">Logout</a>
     <!-- DODAJ KNJIGU -->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
@@ -135,7 +139,7 @@ if ($result->num_rows == 0) {
                 <div class="modal-body">
                     <div class="container knjiga-form">
                         <form action="#" method="post" id="dodajForm">
-                            <h3 id="naslov" style="color: black" text-align="center">Dodavanje knjige</h3>
+                            <h3 id="naslov" style="color: #b80000; text-shadow: 2px 2px 3px #e6e6e6;" text-align="center">Dodavanje knjige</h3>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -182,7 +186,7 @@ if ($result->num_rows == 0) {
                 <div class="modal-body">
                     <div class="container knjiga-form">
                         <form action="#" method="post" id="izmeniForm">
-                            <h3 style="color: red">Izmeni knjigu</h3>
+                            <h3 style="color: #b80000; text-shadow: 2px 2px 3px #e6e6e6;">Izmeni knjigu</h3>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
